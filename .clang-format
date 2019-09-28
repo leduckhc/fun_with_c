@@ -1,0 +1,8 @@
+BasedOnStyle: LLVM
+IndentWidth: 2
+AlignAfterOpenBracket: DontAlign
+AlignConsecutiveAssignments: true
+BreakBeforeBraces: Linux
+AlignEscapedNewlines: Right
+AlignTrailingComments: true
+AllowShortIfStatementsOnASingleLine: true
