@@ -2,11 +2,11 @@
 #include <range/v3/all.hpp> // get everything
 #include <string>
 
-using namespace std;
+using std::string, std::cout, std::cin;
 
 int main()
 {
-  std::string s{"hello"};
+  std::string s({"hello"});
 
   // output: h e l l o
   ranges::for_each(s, [](char c) { cout << c << ' '; });
