@@ -1,7 +1,8 @@
 #include <iostream>
 #include <range/v3/all.hpp> // get everything
 #include <string>
-using std::cout;
+
+using namespace std;
 
 int main()
 {
@@ -10,4 +11,8 @@ int main()
   // output: h e l l o
   ranges::for_each(s, [](char c) { cout << c << ' '; });
   cout << '\n';
+
+  for (int i : ranges::view::iota(1, 10)) {
+    cout << i << " ";
+  }
 }
