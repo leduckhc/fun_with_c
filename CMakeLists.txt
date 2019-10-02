@@ -15,8 +15,15 @@ set(LIBS ${OpenCV_LIBS})
 add_executable(submatrix submatrix.cpp)
 target_link_libraries(submatrix ${LIBS})
 
+add_executable(submatrix2 submatrix2.cpp)
+target_link_libraries(submatrix2 ${LIBS})
+
+add_executable(opencv_ops opencv_ops.cpp)
+target_link_libraries(opencv_ops ${LIBS})
+
 add_executable(tuple tuple.cpp)
 target_link_libraries(tuple ${LIBS})
 
 add_executable(range range.cpp)
 target_link_libraries(range ${LIBS})
+
