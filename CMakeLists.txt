@@ -8,22 +8,22 @@ set(CMAKE_BUILD_TYPE Debug)
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
-# libraries
-set(LIBS ${OpenCV_LIBS})
+# boost
+find_package(Boost 1.65 REQUIRED)
+include_directories(${Boost_INCLUDE_DIRS})
+
+# join all libraries
+set(LIBS ${OpenCV_LIBS} ${Boost_LIBS})
 
 # linking and compiling
-add_executable(submatrix submatrix.cpp)
-target_link_libraries(submatrix ${LIBS})
+file(GLOB SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
+foreach(SRC ${SOURCES})
+    # get filename without extension
+    message("Compiling " ${SRC})
+    get_filename_component(TRG ${SRC} NAME_WE)
+    message("filename " ${TRG})
+    add_executable(${TRG} ${SRC})
+    target_link_libraries(${TRG} ${LIBS} dl)    
+endforeach()
 
-add_executable(submatrix2 submatrix2.cpp)
-target_link_libraries(submatrix2 ${LIBS})
-
-add_executable(opencv_ops opencv_ops.cpp)
-target_link_libraries(opencv_ops ${LIBS})
-
-add_executable(tuple tuple.cpp)
-target_link_libraries(tuple ${LIBS})
-
-add_executable(range range.cpp)
-target_link_libraries(range ${LIBS})
 
