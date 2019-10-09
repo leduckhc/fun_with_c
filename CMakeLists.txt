@@ -16,7 +16,7 @@ include_directories(${Boost_INCLUDE_DIRS})
 set(LIBS ${OpenCV_LIBS} ${Boost_LIBS})
 
 # linking and compiling
-file(GLOB SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
+file(GLOB_RECURSE SOURCES *.cpp *.c)
 foreach(SRC ${SOURCES})
     # get filename without extension
     message("Compiling " ${SRC})
